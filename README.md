@@ -68,6 +68,10 @@ flowchart TD
 cd skills/dji-fcpxml && python3 tests/test_rewrite.py
 ```
 
+## セキュリティ
+
+[SECURITY.md](SECURITY.md) — 脆弱性報告・利用時の注意（パス/キーの扱い、`install.sh` の信頼境界）。
+
 ## 貢献
 
 [CONTRIBUTING.md](CONTRIBUTING.md) — 個人プロジェクト固有のパスは PR に含めない。

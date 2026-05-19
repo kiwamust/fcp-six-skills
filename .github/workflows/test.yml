@@ -6,12 +6,21 @@ on:
   pull_request:
     branches: [main]
 
+# Fork PR でも秘密は渡さない。権限は読み取りのみ。
+permissions:
+  contents: read
+
+concurrency:
+  group: test-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   dji-fcpxml:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@11bd71901bbe5b1635ceea73d275ead27b825835 # v4.2.2
+      - uses: actions/setup-python@8d6c23a931a7d5c6c27cfd9a02507edd16a38007 # v5.6.0
         with:
           python-version: "3.11"
       - name: Run rewrite tests

@@ -201,12 +201,14 @@ def main():
     ap.add_argument("--no-backup", action="store_true", help="skip writing .bak")
     args = ap.parse_args()
 
-    xml_path = Path(args.xml)
-    video_dir = Path(args.video_dir)
+    xml_path = Path(args.xml).resolve()
+    video_dir = Path(args.video_dir).resolve()
     if not xml_path.is_file():
         ap.error(f"xml not found: {xml_path}")
     if not video_dir.is_dir():
         ap.error(f"video dir not found: {video_dir}")
+    if xml_path.suffix not in {".fcpxml", ".xml"}:
+        ap.error(f"refusing to rewrite unexpected extension: {xml_path}")
 
     clip_map = build_clip_map(video_dir)
     print(f"found {len(clip_map)} DJI clips in {video_dir}", file=sys.stderr)

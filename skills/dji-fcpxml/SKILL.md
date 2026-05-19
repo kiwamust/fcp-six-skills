@@ -191,7 +191,7 @@ python3 ~/.claude/skills/dji-fcpxml/scripts/tc_to_frames.py /path/to/DJI_xxx.MP4
 複数ファイル一括：
 
 ```bash
-python3 ~/.claude/skills/dji-fcpxml/scripts/tc_to_frames.py /Volumes/KIOXIA/.../Video/*.MP4
+python3 scripts/tc_to_frames.py <PROJECT_ROOT>/Video/*.MP4
 ```
 
 ### 計算式（ロジック把握用）

@@ -1,8 +1,17 @@
 #!/usr/bin/env bash
 # Install fcp-six-skills into Claude Code or Cursor skills directories.
+#
+# Security: run only from a trusted clone (official repo or your fork).
+# This script creates symlinks under ~/.claude/skills or .cursor/skills.
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+
+# Refuse if this tree is not a git checkout (reduces curl|bash hijack risk).
+if [[ ! -d "$REPO_ROOT/.git" ]]; then
+  echo "error: $REPO_ROOT is not a git repository; aborting" >&2
+  exit 1
+fi
 TARGET="${1:-claude}"
 DEST=""
 
