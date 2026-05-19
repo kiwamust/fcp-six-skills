@@ -250,7 +250,6 @@ TITLE_BLOCK_RE = re.compile(r'\s*<title\s+ref="r\d+"[^>]*>.*?</title>', re.DOTAL
 - **fcp-image-overlay**: 帯・box・PNGなど画像系オーバーレイ。字幕と並べる時の単位変換も。lane の典型スタックもこちらで定義する
 - **fcp-spine-edit**: spine 構造編集（title が連結している parent asset-clip の側）
 - **dji-fcpxml**: 基本のFCPXML仕様（asset.start/format/TC変換）
-- **travelVlog**: 上位ワークフロー（旅行Vlog制作の5フェーズ）
 
 ## lane の決め方（帯と字幕を同一カットに載せるとき）
 

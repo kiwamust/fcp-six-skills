@@ -9,7 +9,7 @@ description: >-
   「BGM」「audio fade」「fadeIn」「fadeOut」「クロスフェード」「audio-only」「lane=-1」
   「adjust-volume」「audioRole」「環境音」「ENV」「SE」「sound effect」「Channel EQ」
   「audio filter」「filter-audio」「マスタリング」「音色整え」等で発動。
-  spine構造編集は fcp-spine-edit、基本のFCPXML仕様は dji-fcpxml、上位ワークフローは travelVlog skill。
+  spine構造編集は fcp-spine-edit、基本のFCPXML仕様は dji-fcpxml。
 ---
 
 # fcp-audio — FCP の audio 配置と fade
@@ -252,7 +252,6 @@ clip 切り替えを BGM の拍に合わせる手法:
 - **fcp-image-overlay**: video系 overlay (audio とは別レイヤー)
 - **fcp-titles**: title (テキスト)、 audio とは独立
 - **dji-fcpxml**: 基本のFCPXML仕様
-- **travelVlog**: 上位ワークフロー (BGM選曲・配置の戦略決定)
 
 ## 関連メモリ
 

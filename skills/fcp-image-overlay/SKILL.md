@@ -235,7 +235,6 @@ DECO_VIDEO_BY_NAME_RE = re.compile(
 - **fcp-titles**: テキスト系オーバーレイ（字幕・テロップ）。画像と並べる時の単位変換
 - **fcp-spine-edit**: spine 構造編集（image overlay が連結している parent asset-clip の側）
 - **dji-fcpxml**: 基本のFCPXML仕様（asset.start/format/TC変換）
-- **travelVlog**: 上位ワークフロー（旅行Vlog制作の5フェーズ）
 
 ## 関連メモリ
 

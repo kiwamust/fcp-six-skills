@@ -404,7 +404,6 @@ content = content.replace('value="-820 -494"', 'value="-750 -420"')
 - **fcp-titles**: spine上のtitle要素（spine構造変更時は title も再注入する。 Position 80% safe zone も title 側で管理）
 - **fcp-image-overlay**: spine上のvideo要素（同上、装飾も再注入）
 - **fcp-library-ops**: spine変更後の library運用 (Transcoded Media のリフレッシュ)
-- **travelVlog**: 上位ワークフロー（Phase B 動画素材refine、 Phase 5 Delivery 納品準備）
 
 ## 関連メモリ
 

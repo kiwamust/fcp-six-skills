@@ -163,8 +163,8 @@ def load_known_uids(backup_glob: str) -> dict[str, str]:
                 uid_map[name] = uid
     return uid_map
 
-# 例: スリランカ project では
-# load_known_uids("/Volumes/KIOXIA/srilanka/series-vlog.fcpxmld*/Info.fcpxml")
+# 例:
+# load_known_uids("<PROJECT_ROOT>/edit/series-vlog.fcpxmld*/Info.fcpxml")
 # → 既存 backup 全部から uid を集約
 ```
 
@@ -210,8 +210,8 @@ FCPは import / playback 時に自動でトランスコードや analysis を行
 # どうしてもコマンドでやるなら（上の「破壊的操作ゲート」を全部クリアしてから）
 osascript -e 'tell application "Final Cut Pro" to quit' || true
 
-DEST_TM="/path/to/srilanka.fcpbundle/<EventName>/Transcoded Media"
-DEST_AF="/path/to/srilanka.fcpbundle/<EventName>/Analysis Files"
+DEST_TM="/path/to/<library>.fcpbundle/<EventName>/Transcoded Media"
+DEST_AF="/path/to/<library>.fcpbundle/<EventName>/Analysis Files"
 ls -ld "$DEST_TM" "$DEST_AF"   # ここでパスが想定通りか人間が確認する
 
 rm -rf "$DEST_TM" "$DEST_AF"
@@ -249,7 +249,7 @@ rm -rf "$DEST_TM" "$DEST_AF"
 
 ```bash
 # FCPを閉じてから
-cp -R /path/to/srilanka.fcpbundle /path/to/srilanka.fcpbundle.YYYY-MM-DD.bak
+cp -R /path/to/<library>.fcpbundle /path/to/<library>.fcpbundle.YYYY-MM-DD.bak
 ```
 
 ただしサイズが大きいので、Transcoded を消してからコピーすると軽い。
@@ -260,7 +260,7 @@ cp -R /path/to/srilanka.fcpbundle /path/to/srilanka.fcpbundle.YYYY-MM-DD.bak
 - **import後に Original Media が library 内にある**: ON状態で import済み。手動 rm で削除可、ただし FCP は途切れる場合あり (再import 推奨)
 - **SD 抜き差しで library が壊れる**: src パスが切れる。外付け SSD にコピーして src 書き換えで安定化
 - **Transcoded Media を削除したらFCPが激重**: 起動後に再生成中。バックグラウンドで完了するまで待つ
-- **同じ project名で複数 Event 作成**: FCP 内では区別つくが、 file system では `srilanka.fcpbundle/<EventName>/<Project>/` と階層が深く混乱
+- **同じ project名で複数 Event 作成**: FCP 内では区別つくが、 file system では `<library>.fcpbundle/<EventName>/<Project>/` と階層が深く混乱
 - **新生成 fcpxml に独自 uid を付ける**: 既に library に登録済の file を異なる uid で参照すると import error (`The media already exists in the library with a different unique identifier`)。 既存 backup から uid を抽出するか、 uid 属性を**省略する** (FCPXML 1.13 で uid は #IMPLIED)
 - **xmllint だけで通せたつもりになる**: DTD valid でも uid 衝突や物理 path 切れで import 落ちる。 import 前ゲート 4項目 (DTD / uid / path / frame整合) を全部通す
 
