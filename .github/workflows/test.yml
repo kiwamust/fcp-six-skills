@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1635ceea73d275ead27b825835 # v4.2.2
-      - uses: actions/setup-python@8d6c23a931a7d5c6c27cfd9a02507edd16a38007 # v5.6.0
+      - uses: actions/checkout@b4ffde65f46336b88bd3af2d455e36f6668f2c91 # v4.1.1
+      - uses: actions/setup-python@0a5c61591373683505be7e54183a8256f0c1eb9 # v5.0.0
         with:
           python-version: "3.11"
       - name: Run rewrite tests
